@@ -3,34 +3,6 @@
     src: url('assets/fonts/bradford/BradfordLLWeb-Light.daa350987f53.woff2') format('woff2'); 
 }
 
-/* for mobile */
-@media (max-width: 768px) {
-    body {
-        flex-direction: column;
-    }
-
-    .sidebar {
-        position: static;
-        width: auto;
-        padding: 10px 10px 0;
-        border-bottom: 1px solid #eaeaea;
-    }
-
-    .sidebar::after {
-        display: none;
-    }
-
-    .sidebar nav {
-        flex-direction: row;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    main {
-        margin-left: 0;
-        padding: 20px;
-    }
-}
 
 
 body {
@@ -49,15 +21,7 @@ body {
     padding: 40px;
     position: fixed;
 }
-.sidebar::after {  /* Added this block */
-    content: '';
-    position: absolute;
-    top: 300px;  /* This controls how far down the line starts */
-    right: 0;
-    width: 1px;
-    bottom: 0;
-    background: #eaeaea;
-}
+
 
 .sidebar nav {
     display: flex;

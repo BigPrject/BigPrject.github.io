@@ -1,72 +1,160 @@
 @font-face {
     font-family: 'CustomFont';
     src: url('assets/fonts/bradford/BradfordLLWeb-Light.daa350987f53.woff2') format('woff2'); 
-}
-
-
-
-body {
+  }
+  
+  /* --- Base Styles --- */
+  body {
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    display: flex;
     min-height: 100vh;
     line-height: 1.6;
     color: #515050;
-}
-
-
-.sidebar {
+    background: #fff;
+  }
+  
+  /* --- Sidebar Styles --- */
+  .sidebar {
     width: 200px;
     padding: 40px;
     position: fixed;
-}
-
-
-.sidebar nav {
+  }
+  
+  .sidebar nav {
     display: flex;
     flex-direction: column;
-}
-
-.sidebar a {
+  }
+  
+  .sidebar a {
+    color: #323232;
+    position: relative;
     text-decoration: none;
-    color: #8e8e8e;
     margin: 4px 0;
     transition: color 0.2s;
-}
-
-.sidebar a:hover {
-    color: #333;
-}
-
-.sidebar a.active {
-    color: #333;
-}
-
-main {
-    margin-left: 280px;
+  }
+  
+  .sidebar a::after {
+    content: "";
+    background-color: #004637;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 0;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .sidebar a:hover,
+  .sidebar a:focus {
+    color: black;
+  }
+  
+  .sidebar a:hover::after,
+  .sidebar a:focus::after {
+    width: 50%;
+  }
+  
+  main {
+    margin-left: 280px; /* 200px sidebar width + 80px extra spacing */
     padding: 40px;
     max-width: 600px;
-}
-
-h1 {
+  }
+  
+  h1 {
     font-size: 2em;
     margin-bottom: 1em;
-}
-.name-header{
-    color:#004637
-
-}
-
-p {
+    color: #004637;
+  }
+  
+  /* Paragraph styling */
+  p {
     margin-bottom: 1.5em;
-}
-
-a {
+  }
+  
+  a {
     color: #333;
     text-decoration: underline;
-}
-
-a:hover {
+  }
+  
+  a:hover {
     text-decoration: none;
-}
+  }
+  
+  .work-grid {
+    display: grid;
+    grid-template-columns: 80px 1fr; /* icon on left; details on right */
+    grid-gap: 1.5rem;
+    align-items: start;
+    margin-top: 50px; /* space from preceding content */
+  }
+  
+  .job-item {
+    display: contents;
+  }
+  
+  .job-icon {
+    grid-column: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  
+  .job-icon img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  
+  /* --- Job Details --- */
+  .job-details {
+    grid-column: 2;
+  }
+  
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.25rem;
+  }
+  
+  .job-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .position {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .job-details p {
+    margin-top: 0.5rem;
+    line-height: 1.4;
+  }
+  
+  @media (max-width: 700px) {
+    .sidebar {
+      position: static;
+      width: 100%;
+      padding: 20px;
+    }
+    
+    main {
+      margin-left: 0;
+      max-width: 100%;
+      padding: 20px;
+    }
+    
+    .work-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .job-icon,
+    .job-details {
+      grid-column: 1;
+    }
+  }
